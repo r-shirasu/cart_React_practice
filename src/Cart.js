@@ -4,16 +4,22 @@ import { Data } from "./Data";
 
 export const Cart = () => {
   return (
-    <article className="cartItem">
-      <img src={Data[0].img} alt={Data[0].alt}></img>
-      <div className="item-info">
-        <h4 className="title">{Data[0].title}</h4>
-        <h4 className="price">{Data[0].price}</h4>
-        <button className="remove-btn">remove</button>
-      </div>
-      <div className="amount-container">
-        <button className="amount-btn"></button>
-      </div>
-    </article>
+    <div className="section">
+      {Data.map((dataArray, dataIndex) => {
+        return (
+          <article className="cartItem">
+            <img src={dataArray.img} alt={dataArray.alt}></img>
+            <div className="item-info">
+              <h4 className="title">{dataArray.title}</h4>
+              <h4 className="price">{dataArray.price}</h4>
+              <button className="remove-btn">remove</button>
+            </div>
+            <div className="amount-container">
+              <button className="amount-btn"></button>
+            </div>
+          </article>
+        );
+      })}
+    </div>
   );
 };

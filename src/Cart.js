@@ -2,6 +2,11 @@ import React from "react";
 import "./Cart.scss";
 import { Data } from "./Data";
 
+// get our fontawesome imports
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export const Cart = () => {
   return (
     <div className="section">
@@ -15,7 +20,13 @@ export const Cart = () => {
               <button className="remove-btn">remove</button>
             </div>
             <div className="amount-container">
-              <button className="amount-btn"></button>
+              <button className="amount-btn">
+                <FontAwesomeIcon icon={faChevronUp} />
+              </button>
+              <p class="amount"></p>
+              <button className="amount-btn">
+                <FontAwesomeIcon icon={faChevronDown} />
+              </button>
             </div>
           </article>
         );

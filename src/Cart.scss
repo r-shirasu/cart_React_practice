@@ -36,4 +36,16 @@
       color: hsl(205, 84%, 74%);
     }
   }
+
+  .amount-btn {
+    width: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #2680c0;
+  }
+
+  .amount-btn:hover {
+    color: hsl(205, 84%, 74%);
+  }
 }

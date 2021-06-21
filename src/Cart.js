@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cart.scss";
 import { Data } from "./Data";
 
@@ -8,6 +8,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Cart = () => {
+  const [amount, setAmount] = useState(1);
   return (
     <div className="section">
       {Data.map((dataArray, dataIndex) => {
@@ -23,7 +24,7 @@ export const Cart = () => {
               <button className="amount-btn">
                 <FontAwesomeIcon icon={faChevronUp} />
               </button>
-              <p class="amount"></p>
+              <p class="amount">{amount}</p>
               <button className="amount-btn">
                 <FontAwesomeIcon icon={faChevronDown} />
               </button>

@@ -9,6 +9,10 @@ export const Cart = () => {
       <div className="item-info">
         <h4 className="title">{Data[0].title}</h4>
         <h4 className="price">{Data[0].price}</h4>
+        <button className="remove-btn">remove</button>
+      </div>
+      <div className="amount-container">
+        <button className="amount-btn"></button>
       </div>
     </article>
   );

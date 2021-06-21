@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { Cart } from "./Cart.js";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <nav>
+        <div className="nav-center">
+          <h3>useReducer</h3>
+          <div className="nav-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M16 6v2h2l2 12H0L2 8h2V6a6 6 0 1 1 12 0zm-2 0a4 4 0 1 0-8 0v2h8V6zM4 10v2h2v-2H4zm10 0v2h2v-2h-2z" />
+            </svg>
+            <div className="amount-container">
+              <p className="total-amount"></p>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section className="cart">
+        <header>
+          <h2>Your bag</h2>
+        </header>
+        <div>
+          <Cart />
+        </div>
+        <footer>
+          <div className="cart-total">
+            <button className="btn clear-btn">clear cart</button>
+          </div>
+        </footer>
+      </section>
+    </>
   );
-}
-
-export default App;
+};

@@ -1,0 +1,25 @@
+.cartItem {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem 0;
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+  }
+
+  .item-info {
+    h4 {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+
+      .price {
+        color: #617d98;
+      }
+    }
+  }
+}

@@ -38,11 +38,6 @@ export const Cart = () => {
     setmobileItems(decreaseAction);
   };
 
-  // const count = () => {
-  //   const total = Data.reduce((p, x) => p + x.price, 0);
-  //   console.log(total);
-  // };
-
   return (
     <div className="section">
       {mobileItems.map((dataArray, dataIndex) => {

@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Cart = () => {
   const [amount, setAmount] = useState(1);
 
-  const increase = () => {
+  const increase = (dataIndex) => {
     setAmount(amount + 1);
   };
 
@@ -32,7 +32,7 @@ export const Cart = () => {
                   onClick={() => increase(dataIndex)}
                 />
               </button>
-              <p class="amount">{amount}</p>
+              <p className="amount">{amount}</p>
               <button className="amount-btn">
                 <FontAwesomeIcon icon={faChevronDown} />
               </button>

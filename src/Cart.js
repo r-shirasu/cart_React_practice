@@ -8,17 +8,23 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Cart = () => {
-  const [amount, setAmount] = useState(1);
+  const [mobileItems, setmobileItems] = useState(Data);
 
   const increase = (dataIndex) => {
-    setAmount(amount + 1);
+    const increaseAction = mobileItems.map((dataArray, id) => {
+      if (id === dataIndex) {
+        return { ...dataArray, amount: dataArray.amount + 1 };
+      }
+      return dataArray;
+    });
+    setmobileItems(increaseAction);
   };
 
   return (
     <div className="section">
-      {Data.map((dataArray, dataIndex) => {
+      {mobileItems.map((dataArray, dataIndex) => {
         return (
-          <article className="cartItem">
+          <article key={`${dataArray}${dataIndex}`} className="cartItem">
             <img src={dataArray.img} alt={dataArray.alt}></img>
             <div className="item-info">
               <h4 className="title">{dataArray.title}</h4>
@@ -32,7 +38,7 @@ export const Cart = () => {
                   onClick={() => increase(dataIndex)}
                 />
               </button>
-              <p className="amount">{amount}</p>
+              <p className="amount">{dataArray.amount}</p>
               <button className="amount-btn">
                 <FontAwesomeIcon icon={faChevronDown} />
               </button>

@@ -21,12 +21,15 @@ export const Cart = () => {
   };
 
   const decrease = (dataIndex) => {
-    const decreaseAction = mobileItems.map((dataArray, id) => {
-      if (id === dataIndex) {
-        return { ...dataArray, amount: dataArray.amount - 1 };
-      }
-      return dataArray;
-    });
+    const decreaseAction = mobileItems
+      .map((dataArray, id) => {
+        if (id === dataIndex) {
+          return { ...dataArray, amount: dataArray.amount - 1 };
+        }
+        return dataArray;
+      })
+      .filter((dataArray, _) => dataArray.amount !== 0);
+
     setmobileItems(decreaseAction);
   };
 

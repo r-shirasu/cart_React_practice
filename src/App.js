@@ -37,6 +37,7 @@ export const App = () => {
       .filter((dataValue, _) => dataValue.amount !== 0);
 
     let sum = count - dataValue.price;
+    setAmount(mobileItems.length - 1);
     setCount(Math.round(sum * 100) / 100);
     setmobileItems(decreaseAction);
   };
@@ -46,18 +47,16 @@ export const App = () => {
       return id !== dataIndex;
     });
     let sum = count - dataValue.price;
+    setAmount(mobileItems.length - 1);
     setCount(Math.round(sum * 100) / 100);
     setmobileItems(deleteArr);
   };
 
   const clearItems = () => {
     setmobileItems([]);
+    setAmount(0);
     setMessage(true);
     setFooter(false);
-  };
-
-  const setIcon = () => {
-    setAmount(Data.length);
   };
 
   return (

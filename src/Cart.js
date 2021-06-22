@@ -20,6 +20,16 @@ export const Cart = () => {
     setmobileItems(increaseAction);
   };
 
+  const decrease = (dataIndex) => {
+    const decreaseAction = mobileItems.map((dataArray, id) => {
+      if (id === dataIndex) {
+        return { ...dataArray, amount: dataArray.amount - 1 };
+      }
+      return dataArray;
+    });
+    setmobileItems(decreaseAction);
+  };
+
   return (
     <div className="section">
       {mobileItems.map((dataArray, dataIndex) => {
@@ -40,7 +50,10 @@ export const Cart = () => {
               </button>
               <p className="amount">{dataArray.amount}</p>
               <button className="amount-btn">
-                <FontAwesomeIcon icon={faChevronDown} />
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  onClick={() => decrease(dataIndex)}
+                />
               </button>
             </div>
           </article>

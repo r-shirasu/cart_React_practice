@@ -46,7 +46,7 @@ export const Cart = () => {
             <img src={dataArray.img} alt={dataArray.alt}></img>
             <div className="item-info">
               <h4 className="title">{dataArray.title}</h4>
-              <h4 className="price">{dataArray.price}</h4>
+              <h4 className="price">{`$${dataArray.price}`}</h4>
               <button className="remove-btn">remove</button>
             </div>
             <div className="amount-container">
@@ -71,7 +71,7 @@ export const Cart = () => {
         <hr></hr>
         <div className="cart-total">
           <h4>total</h4>
-          <p>{count}</p>
+          <p>{`$${count}`}</p>
         </div>
         <button className="btn clear-btn">clear cart</button>
       </footer>

@@ -1,5 +1,6 @@
 import "./App.scss";
 import { Cart } from "./Cart.js";
+import React from "react";
 
 export const App = () => {
   return (
@@ -24,11 +25,6 @@ export const App = () => {
         <div>
           <Cart />
         </div>
-        <footer>
-          <div className="cart-total">
-            <button className="btn clear-btn">clear cart</button>
-          </div>
-        </footer>
       </section>
     </>
   );

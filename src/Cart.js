@@ -9,18 +9,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Cart = () => {
   const [mobileItems, setmobileItems] = useState(Data);
+  const [count, setCount] = useState(2199.96);
 
-  const increase = (dataIndex) => {
+  const increase = (dataArray, dataIndex) => {
     const increaseAction = mobileItems.map((dataArray, id) => {
       if (id === dataIndex) {
         return { ...dataArray, amount: dataArray.amount + 1 };
       }
       return dataArray;
     });
+    let sum = count + dataArray.price;
+    setCount(Math.round(sum * 100) / 100);
     setmobileItems(increaseAction);
   };
 
-  const decrease = (dataIndex) => {
+  const decrease = (dataArray, dataIndex) => {
     const decreaseAction = mobileItems
       .map((dataArray, id) => {
         if (id === dataIndex) {
@@ -30,8 +33,15 @@ export const Cart = () => {
       })
       .filter((dataArray, _) => dataArray.amount !== 0);
 
+    let sum = count - dataArray.price;
+    setCount(Math.round(sum * 100) / 100);
     setmobileItems(decreaseAction);
   };
+
+  // const count = () => {
+  //   const total = Data.reduce((p, x) => p + x.price, 0);
+  //   console.log(total);
+  // };
 
   return (
     <div className="section">
@@ -48,20 +58,28 @@ export const Cart = () => {
               <button className="amount-btn">
                 <FontAwesomeIcon
                   icon={faChevronUp}
-                  onClick={() => increase(dataIndex)}
+                  onClick={() => increase(dataArray, dataIndex)}
                 />
               </button>
               <p className="amount">{dataArray.amount}</p>
               <button className="amount-btn">
                 <FontAwesomeIcon
                   icon={faChevronDown}
-                  onClick={() => decrease(dataIndex)}
+                  onClick={() => decrease(dataArray, dataIndex)}
                 />
               </button>
             </div>
           </article>
         );
       })}
+      <footer>
+        <hr></hr>
+        <div className="cart-total">
+          <h4>total</h4>
+          <p>{count}</p>
+        </div>
+        <button className="btn clear-btn">clear cart</button>
+      </footer>
     </div>
   );
 };

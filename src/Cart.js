@@ -38,6 +38,13 @@ export const Cart = () => {
     setmobileItems(decreaseAction);
   };
 
+  const removeItem = (dataIndex) => {
+    const deleteArr = mobileItems.filter((_, id) => {
+      return id !== dataIndex;
+    });
+    setmobileItems(deleteArr);
+  };
+
   return (
     <div className="section">
       {mobileItems.map((dataArray, dataIndex) => {
@@ -47,7 +54,12 @@ export const Cart = () => {
             <div className="item-info">
               <h4 className="title">{dataArray.title}</h4>
               <h4 className="price">{`$${dataArray.price}`}</h4>
-              <button className="remove-btn">remove</button>
+              <button
+                className="remove-btn"
+                onClick={() => removeItem(dataIndex)}
+              >
+                remove
+              </button>
             </div>
             <div className="amount-container">
               <button className="amount-btn">

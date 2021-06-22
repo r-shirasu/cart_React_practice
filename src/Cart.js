@@ -71,7 +71,7 @@ export const Cart = () => {
         <hr></hr>
         <div className="cart-total">
           <h4>total</h4>
-          <p>{`$${count}`}</p>
+          <h4>{`$${count}`}</h4>
         </div>
         <button className="btn clear-btn">clear cart</button>
       </footer>

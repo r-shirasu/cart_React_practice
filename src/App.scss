@@ -1,3 +1,9 @@
+$white: #fff;
+$darkskyblue: #2680c0;
+$lightskyblue: hsl(205, 84%, 74%);
+$darkred: hsl(360, 67%, 44%);
+$gray: #617d98;
+
 * {
   margin: 0;
   padding: 0;
@@ -65,7 +71,7 @@ h4 {
 }
 
 nav {
-  background-color: #2680c0;
+  background-color: $darkskyblue;
   padding: 1.25rem 2rem;
 
   .nav-center {
@@ -78,7 +84,7 @@ nav {
 
     h3 {
       margin-bottom: 0;
-      color: #fff;
+      color: $white;
       font-size: 1.5rem;
     }
 
@@ -88,7 +94,25 @@ nav {
 
       svg {
         width: 2rem;
-        fill: #fff;
+        fill: $white;
+      }
+
+      .totalAmount-container {
+        position: absolute;
+        top: -0.85rem;
+        right: -0.85rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        background: #85c6f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          color: $white;
+          font-size: 1.25rem;
+        }
       }
     }
   }
@@ -111,12 +135,80 @@ nav {
     }
   }
 
+  .emptyMessage {
+    text-transform: lowercase;
+    color: $gray;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .cartItem {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    grid-column-gap: 1.5rem;
+    margin: 1.5rem 0;
+
+    img {
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
+    }
+
+    .item-info {
+      h4 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+
+        .price {
+          color: $gray;
+        }
+      }
+
+      .remove-btn {
+        color: $darkskyblue;
+        letter-spacing: 0.25rem;
+        cursor: pointer;
+        font-size: 0.85rem;
+        background: transparent;
+        border: none;
+        margin-top: 0.375rem;
+        transition: all 0.3s linear;
+      }
+      .remove-btn:hover {
+        color: $lightskyblue;
+      }
+    }
+
+    .amount-container {
+      .amount-btn {
+        width: 1.5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: $darkskyblue;
+      }
+
+      .amount-btn:hover {
+        color: $lightskyblue;
+      }
+
+      .amount {
+        text-align: center;
+        margin-bottom: 0;
+        font-size: 1.25rem;
+        line-height: 1;
+      }
+    }
+  }
+
   footer {
     margin-top: 4rem;
     text-align: center;
 
     hr {
-      background: #617d98;
+      background: $gray;
       border-color: transparent;
       border-width: 0.25px;
     }
@@ -131,15 +223,15 @@ nav {
     .clear-btn {
       background: transparent;
       padding: 0.5rem 1rem;
-      color: hsl(360, 67%, 44%);
-      border: 1px solid hsl(360, 67%, 44%);
+      color: $darkred;
+      border: 1px solid $darkred;
       margin-top: 2.25rem;
       border-radius: 0.25rem;
     }
     .clear-btn:hover {
       cursor: pointer;
       background: hsl(360, 71%, 66%);
-      color: hsl(360, 67%, 44%);
+      color: $darkred;
       border-color: hsl(360, 71%, 66%);
     }
   }

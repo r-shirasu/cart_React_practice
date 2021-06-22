@@ -38,10 +38,12 @@ export const Cart = () => {
     setmobileItems(decreaseAction);
   };
 
-  const removeItem = (dataIndex) => {
+  const removeItem = (dataValue, dataIndex) => {
     const deleteArr = mobileItems.filter((_, id) => {
       return id !== dataIndex;
     });
+    let sum = count - dataValue.price;
+    setCount(Math.round(sum * 100) / 100);
     setmobileItems(deleteArr);
   };
 
@@ -56,7 +58,7 @@ export const Cart = () => {
               <h4 className="price">{`$${dataValue.price}`}</h4>
               <button
                 className="remove-btn"
-                onClick={() => removeItem(dataIndex)}
+                onClick={() => removeItem(dataValue, dataIndex)}
               >
                 remove
               </button>

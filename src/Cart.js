@@ -57,7 +57,7 @@ export const Cart = () => {
 
   return (
     <div className="section">
-      {message && <p>is currently empty</p>}
+      {message && <h4 className="emptyMessage">is currently empty</h4>}
       {mobileItems.map((dataValue, dataIndex) => {
         return (
           <article key={`${dataValue}${dataIndex}`} className="cartItem">

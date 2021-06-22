@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const Cart = () => {
   const [mobileItems, setmobileItems] = useState(Data);
   const [count, setCount] = useState(2199.96);
+  const [footer, setFooter] = useState(true);
+  const [message, setMessage] = useState(false);
 
   const increase = (dataValue, dataIndex) => {
     const increaseAction = mobileItems.map((dataValue, id) => {
@@ -47,8 +49,15 @@ export const Cart = () => {
     setmobileItems(deleteArr);
   };
 
+  const clearItems = () => {
+    setmobileItems([]);
+    setMessage(true);
+    setFooter(false);
+  };
+
   return (
     <div className="section">
+      {message && <h4 className="emptyMessage">is currently empty</h4>}
       {mobileItems.map((dataValue, dataIndex) => {
         return (
           <article key={`${dataValue}${dataIndex}`} className="cartItem">
@@ -81,14 +90,18 @@ export const Cart = () => {
           </article>
         );
       })}
-      <footer>
-        <hr></hr>
-        <div className="cart-total">
-          <h4>total</h4>
-          <h4>{`$${count}`}</h4>
-        </div>
-        <button className="btn clear-btn">clear cart</button>
-      </footer>
+      {footer && (
+        <footer>
+          <hr></hr>
+          <div className="cart-total">
+            <h4>total</h4>
+            <h4>{`$${count}`}</h4>
+          </div>
+          <button className="btn clear-btn" onClick={clearItems}>
+            clear cart
+          </button>
+        </footer>
+      )}
     </div>
   );
 };

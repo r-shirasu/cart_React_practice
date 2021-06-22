@@ -11,14 +11,14 @@ export const Cart = () => {
   const [mobileItems, setmobileItems] = useState(Data);
   const [count, setCount] = useState(2199.96);
 
-  const increase = (dataArray, dataIndex) => {
+  const increase = (dataValue, dataIndex) => {
     const increaseAction = mobileItems.map((dataArray, id) => {
       if (id === dataIndex) {
         return { ...dataArray, amount: dataArray.amount + 1 };
       }
       return dataArray;
     });
-    let sum = count + dataArray.price;
+    let sum = count + dataValue.price;
     setCount(Math.round(sum * 100) / 100);
     setmobileItems(increaseAction);
   };

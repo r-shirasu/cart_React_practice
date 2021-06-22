@@ -27,6 +27,43 @@ h4 {
   margin-bottom: 0.75rem;
 }
 
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+
 nav {
   background-color: #2680c0;
   padding: 1.25rem 2rem;
@@ -78,25 +115,32 @@ nav {
     margin-top: 4rem;
     text-align: center;
 
+    hr {
+      background: #617d98;
+      border-color: transparent;
+      border-width: 0.25px;
+    }
+
     .cart-total {
       text-transform: capitalize;
       display: flex;
       justify-content: space-between;
       margin-top: 1rem;
+    }
 
-      .clear-btn {
-        background: transparent;
-        padding: 0.5rem 1rem;
-        color: hsl(360, 67%, 44%);
-        border: 1px solid hsl(360, 67%, 44%);
-        margin-top: 2.25rem;
-        border-radius: 0.25rem;
-      }
-      .clear-btn:hover {
-        background: hsl(360, 71%, 66%);
-        color: hsl(360, 67%, 44%);
-        border-color: hsl(360, 71%, 66%);
-      }
+    .clear-btn {
+      background: transparent;
+      padding: 0.5rem 1rem;
+      color: hsl(360, 67%, 44%);
+      border: 1px solid hsl(360, 67%, 44%);
+      margin-top: 2.25rem;
+      border-radius: 0.25rem;
+    }
+    .clear-btn:hover {
+      cursor: pointer;
+      background: hsl(360, 71%, 66%);
+      color: hsl(360, 67%, 44%);
+      border-color: hsl(360, 71%, 66%);
     }
   }
 }

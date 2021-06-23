@@ -20,8 +20,8 @@ export const App = () => {
       }
       return dataValue;
     });
-    let sum = count + dataValue.price;
-    setCount(Math.round(sum * 100) / 100);
+    const sum = count + dataValue.price;
+    showTotalCount(sum);
     setmobileItems(increaseAction);
   };
 
@@ -35,8 +35,8 @@ export const App = () => {
       })
       .filter((dataValue, _) => dataValue.amount !== 0);
 
-    let sum = count - dataValue.price;
-    setCount(Math.round(sum * 100) / 100);
+    const sum = count - dataValue.price;
+    showTotalCount(sum);
     setmobileItems(decreaseAction);
   };
 
@@ -44,8 +44,8 @@ export const App = () => {
     const deleteArr = mobileItems.filter((_, id) => {
       return id !== dataIndex;
     });
-    let sum = count - dataValue.price;
-    setCount(Math.round(sum * 100) / 100);
+    const sum = count - dataValue.price;
+    showTotalCount(sum);
     setmobileItems(deleteArr);
   };
 
@@ -53,6 +53,10 @@ export const App = () => {
     setmobileItems([]);
     setMessage(true);
     setFooter(false);
+  };
+
+  const showTotalCount = (sum) => {
+    setCount(Math.round(sum * 100) / 100);
   };
 
   return (

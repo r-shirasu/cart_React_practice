@@ -11,7 +11,7 @@ export const App = () => {
   const [mobileItems, setmobileItems] = useState(Data);
   const [count, setCount] = useState(2199.96);
   const [footer, setFooter] = useState(true);
-  const [isMessage, setIsMessage] = useState(false);
+  const [hasShownMessage, setHasShownMessage] = useState(false);
 
   const increase = (dataValue, dataIndex) => {
     const increaseAction = mobileItems.map((dataValue, id) => {
@@ -51,7 +51,7 @@ export const App = () => {
 
   const clearItems = () => {
     setmobileItems([]);
-    setIsMessage(true);
+    setHasShownMessage(true);
     setFooter(false);
   };
 
@@ -79,7 +79,9 @@ export const App = () => {
           <h2>Your bag</h2>
         </header>
         <div className="section">
-          {isMessage && <h4 className="emptyMessage">is currently empty</h4>}
+          {hasShownMessage && (
+            <h4 className="emptyMessage">is currently empty</h4>
+          )}
           {mobileItems.map((dataValue, dataIndex) => {
             return (
               <article key={`${dataValue}${dataIndex}`} className="cartItem">

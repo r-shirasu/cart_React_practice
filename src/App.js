@@ -56,7 +56,7 @@ export const App = () => {
   };
 
   const showTotalCount = (sum) => {
-    setCount(Math.round(sum * 100) / 100);
+    setCount(sum);
   };
 
   return (
@@ -119,7 +119,7 @@ export const App = () => {
               <hr></hr>
               <div className="cart-total">
                 <h4>total</h4>
-                <h4>{`$${count}`}</h4>
+                <h4>{`$${count.toFixed(2)}`}</h4>
               </div>
               <button className="btn clear-btn" onClick={clearItems}>
                 clear cart
